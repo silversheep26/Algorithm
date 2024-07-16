@@ -1,4 +1,6 @@
 import java.io.*;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.StringTokenizer;
 
 public class Main {
@@ -8,20 +10,16 @@ public class Main {
 		int n = Integer.parseInt(st.nextToken());
 		int m = Integer.parseInt(st.nextToken());
 
-		String[] arrN = new String[n];
-		String[] arrM = new String[m];
-
 		int cnt = 0;
 
+		Map<String, Integer> map = new HashMap<>();
 		for (int i = 0; i < n; i++) {
-			arrN[i] = br.readLine();
+			map.put(br.readLine(), 0);
 		}
+
 		for (int i = 0; i < m; i++) {
-			arrM[i] = br.readLine();
-			for (int j = 0; j < n; j++) {
-				if (arrN[j].equals(arrM[i])) {
-					cnt++;
-				}
+			if (map.containsKey(br.readLine())) {
+				cnt++;
 			}
 		}
 		System.out.println(cnt);
